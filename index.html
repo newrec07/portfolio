@@ -7,60 +7,76 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://rsms.me/inter/inter.css');
-        body { font-family: 'Inter', sans-serif; background-color: #fff; color: #111; }
+        body { font-family: 'Inter', sans-serif; background-color: #fff; color: #111; overflow-x: hidden; }
+        /* 메뉴가 부드럽게 움직이게 하는 설정 */
+        #sidebar { transition: transform 0.3s ease-in-out; }
     </style>
 </head>
 <body class="flex min-h-screen">
 
-    <aside class="w-64 border-r border-gray-100 p-6 flex-shrink-0 hidden md:block">
-        <div class="sticky top-10">
-            <h1 class="text-xl font-bold mb-10">Menu</h1>
-            <nav class="space-y-4">
-                <a href="index.html" class="block text-sm font-medium text-black">Home</a>
-                <a href="#" class="block text-sm font-medium text-gray-400 hover:text-black transition-colors">Projects</a>
-                <a href="#" class="block text-sm font-medium text-gray-400 hover:text-black transition-colors">Essays</a>
-                <a href="#" class="block text-sm font-medium text-gray-400 hover:text-black transition-colors">Videos</a>
+    <button id="menu-btn" class="fixed top-5 left-5 z-50 p-2 rounded-md hover:bg-gray-100 transition-colors">
+        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <aside id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-white border-r border-gray-100 p-6 z-40 transform -translate-x-full">
+        <div class="mt-16">
+            <h1 class="text-xl font-bold mb-10 pl-2">Menu</h1>
+            <nav class="space-y-2">
+                <a href="index.html" class="block px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-black">Home</a>
+                <a href="#" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-black transition-all">Projects</a>
+                <a href="#" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-black transition-all">Essays</a>
+                <a href="#" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-black transition-all">Videos</a>
             </nav>
         </div>
     </aside>
 
-    <main class="flex-1 max-w-2xl px-6 py-20 mx-auto md:mx-0 lg:ml-20">
-        
-        <header class="mb-16">
-            <h1 class="text-2xl font-bold tracking-tight text-black">Nayun Leah Kim</h1>
-            <p class="text-gray-500 mt-2 text-lg">Student</p>
-        </header>
+    <main id="main-content" class="flex-1 w-full px-6 py-20 transition-all duration-300">
+        <div class="max-w-2xl mx-auto">
+            
+            <header class="mb-16">
+                <h1 class="text-2xl font-bold tracking-tight text-black">Your Name</h1>
+                <p class="text-gray-500 mt-2 text-lg">Student Researcher & Developer</p>
+            </header>
 
-        <section class="mb-12">
-            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Projects</h2>
-            <ul class="space-y-5">
-                <li class="flex justify-between items-baseline group">
-                    <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">AI Data Analysis Project</a>
-                    <span class="text-gray-400 text-sm font-medium">2026</span>
-                </li>
-            </ul>
-        </section>
+            <section class="mb-12">
+                <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Projects</h2>
+                <ul class="space-y-5">
+                    <li class="flex justify-between items-baseline group">
+                        <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">AI Data Analysis Project</a>
+                        <span class="text-gray-400 text-sm font-medium">2026</span>
+                    </li>
+                </ul>
+            </section>
 
-        <section class="mb-12">
-            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Essays</h2>
-            <ul class="space-y-5">
-                <li class="flex justify-between items-baseline group">
-                    <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">Research on Data Environments</a>
-                    <span class="text-gray-400 text-sm font-medium">Mar 18</span>
-                </li>
-            </ul>
-        </section>
+            <section class="mb-12">
+                <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Essays</h2>
+                <ul class="space-y-5">
+                    <li class="flex justify-between items-baseline group">
+                        <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">Research on Data Environments</a>
+                        <span class="text-gray-400 text-sm font-medium">Mar 18</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
 
-        <section>
-            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Videos</h2>
-            <ul class="space-y-5">
-                <li class="flex justify-between items-baseline group">
-                    <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">Technical Presentation</a>
-                    <span class="text-gray-400 text-sm font-medium">YouTube</span>
-                </li>
-            </ul>
-        </section>
-        </main>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+
+        menuBtn.addEventListener('click', () => {
+            // 사이드바 넣었다 빼기
+            sidebar.classList.toggle('-translate-x-full');
+            
+            // 메인 내용도 옆으로 살짝 밀어주기 (PC에서만)
+            if (window.innerWidth > 768) {
+                mainContent.classList.toggle('md:ml-64');
+            }
+        });
+    </script>
 
 </body>
 </html>
