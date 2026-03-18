@@ -8,14 +8,15 @@
     <style>
         @import url('https://rsms.me/inter/inter.css');
         body { font-family: 'Inter', sans-serif; background-color: #fff; color: #111; overflow-x: hidden; }
-        /* 메뉴가 부드럽게 움직이게 하는 설정 */
-        #sidebar { transition: transform 0.3s ease-in-out; }
+        
+        /* 사이드바와 본문 이동을 부드럽게 만드는 설정 */
+        #sidebar, #main-content { transition: all 0.3s ease-in-out; }
     </style>
 </head>
 <body class="flex min-h-screen">
 
-    <button id="menu-btn" class="fixed top-5 left-5 z-50 p-2 rounded-md hover:bg-gray-100 transition-colors">
-        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button id="menu-btn" class="fixed top-5 left-5 z-50 p-2 bg-white rounded-md shadow-sm border border-gray-100 hover:bg-gray-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
     </button>
@@ -24,7 +25,7 @@
         <div class="mt-16">
             <h1 class="text-xl font-bold mb-10 pl-2">Menu</h1>
             <nav class="space-y-2">
-                <a href="index.html" class="block px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-black">Home</a>
+                <a href="index.html" class="block px-4 py-2 rounded-lg text-sm font-medium bg-gray-100 text-black font-bold">Home</a>
                 <a href="#" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-black transition-all">Projects</a>
                 <a href="#" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-black transition-all">Essays</a>
                 <a href="#" class="block px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-black transition-all">Videos</a>
@@ -32,7 +33,7 @@
         </div>
     </aside>
 
-    <main id="main-content" class="flex-1 w-full px-6 py-20 transition-all duration-300">
+    <main id="main-content" class="flex-1 w-full px-6 py-20 translate-x-0">
         <div class="max-w-2xl mx-auto">
             
             <header class="mb-16">
@@ -68,12 +69,18 @@
         const mainContent = document.getElementById('main-content');
 
         menuBtn.addEventListener('click', () => {
-            // 사이드바 넣었다 빼기
+            // 메뉴바 넣었다 빼기
             sidebar.classList.toggle('-translate-x-full');
             
-            // 메인 내용도 옆으로 살짝 밀어주기 (PC에서만)
-            if (window.innerWidth > 768) {
-                mainContent.classList.toggle('md:ml-64');
+            // 본문 내용을 오른쪽으로 256px(사이드바 너비)만큼 밀어내기
+            mainContent.classList.toggle('translate-x-64');
+        });
+
+        // 화면 바깥 클릭 시 메뉴 닫기 (선택 사항)
+        mainContent.addEventListener('click', () => {
+            if (!sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.add('-translate-x-full');
+                mainContent.classList.remove('translate-x-64');
             }
         });
     </script>
