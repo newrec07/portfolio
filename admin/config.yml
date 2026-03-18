@@ -1,7 +1,11 @@
 backend:
   name: github
-  repo: your-github-id/portfolio # [중요] 본인 깃허브 ID로 수정하세요
+  repo: newrec07/portfolio
   branch: main
+  auth_type: pkce # 이 설정을 넣으면 별도의 서버 없이 로그인이 됩니다.
+
+site_url: https://your-site.vercel.app # 여기에 본인 사이트 주소를 넣으세요.
+display_url: https://your-site.vercel.app
 
 media_folder: "images"
 public_folder: "/images"
