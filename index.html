@@ -10,40 +10,57 @@
         body { font-family: 'Inter', sans-serif; background-color: #fff; color: #111; }
     </style>
 </head>
-<body class="max-w-2xl mx-auto px-6 py-20">
-    <header class="mb-16">
-        <h1 class="text-2xl font-bold tracking-tight text-black">Nayun Leah Kim</h1>
-        <p class="text-gray-500 mt-2 text-lg">Student</p>
-    </header>
+<body class="flex min-h-screen">
 
-    <section class="mb-12">
-        <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Projects</h2>
-        <ul class="space-y-5">
-            <li class="flex justify-between items-baseline group">
-                <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">AI Data Analysis Project</a>
-                <span class="text-gray-400 text-sm font-medium">2026</span>
-            </li>
-        </ul>
-    </section>
+    <aside class="w-64 border-r border-gray-100 p-6 flex-shrink-0 hidden md:block">
+        <div class="sticky top-10">
+            <h1 class="text-xl font-bold mb-10">Menu</h1>
+            <nav class="space-y-4">
+                <a href="index.html" class="block text-sm font-medium text-black">Home</a>
+                <a href="#" class="block text-sm font-medium text-gray-400 hover:text-black transition-colors">Projects</a>
+                <a href="#" class="block text-sm font-medium text-gray-400 hover:text-black transition-colors">Essays</a>
+                <a href="#" class="block text-sm font-medium text-gray-400 hover:text-black transition-colors">Videos</a>
+            </nav>
+        </div>
+    </aside>
 
-    <section class="mb-12">
-        <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Essays</h2>
-        <ul class="space-y-5">
-            <li class="flex justify-between items-baseline group">
-                <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">Research on Data Environments</a>
-                <span class="text-gray-400 text-sm font-medium">Mar 18</span>
-            </li>
-        </ul>
-    </section>
+    <main class="flex-1 max-w-2xl px-6 py-20 mx-auto md:mx-0 lg:ml-20">
+        
+        <header class="mb-16">
+            <h1 class="text-2xl font-bold tracking-tight text-black">Nayun Leah Kim</h1>
+            <p class="text-gray-500 mt-2 text-lg">Student</p>
+        </header>
 
-    <section>
-        <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Videos</h2>
-        <ul class="space-y-5">
-            <li class="flex justify-between items-baseline group">
-                <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">Technical Presentation</a>
-                <span class="text-gray-400 text-sm font-medium">YouTube</span>
-            </li>
-        </ul>
-    </section>
+        <section class="mb-12">
+            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Projects</h2>
+            <ul class="space-y-5">
+                <li class="flex justify-between items-baseline group">
+                    <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">AI Data Analysis Project</a>
+                    <span class="text-gray-400 text-sm font-medium">2026</span>
+                </li>
+            </ul>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Essays</h2>
+            <ul class="space-y-5">
+                <li class="flex justify-between items-baseline group">
+                    <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">Research on Data Environments</a>
+                    <span class="text-gray-400 text-sm font-medium">Mar 18</span>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-6">Videos</h2>
+            <ul class="space-y-5">
+                <li class="flex justify-between items-baseline group">
+                    <a href="#" class="text-lg text-black hover:text-blue-600 transition-colors">Technical Presentation</a>
+                    <span class="text-gray-400 text-sm font-medium">YouTube</span>
+                </li>
+            </ul>
+        </section>
+        </main>
+
 </body>
 </html>
