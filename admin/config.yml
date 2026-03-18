@@ -2,10 +2,12 @@ backend:
   name: github
   repo: newrec07/portfolio
   branch: main
-  auth_type: pkce # 이 설정을 넣으면 별도의 서버 없이 로그인이 됩니다.
+  auth_type: pkce
+  app_id: Ov23liTzZHGs0SzuPtvs # 여기에 열쇠를 넣어야 버튼이 뜹니다!
 
-site_url: https://your-site.vercel.app # 여기에 본인 사이트 주소를 넣으세요.
-display_url: https://your-site.vercel.app
+# 본인 사이트 주소로 바꿔주세요 (안 바꿔도 작동은 하지만 바꾸는 게 좋습니다)
+site_url: https://portfolio-newrec07.vercel.app
+display_url: https://portfolio-newrec07.vercel.app
 
 media_folder: "images"
 public_folder: "/images"
@@ -19,5 +21,5 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Summary (Paywall Preview)", name: "summary", widget: "text", hint: "메인 페이지에 보일 3줄 요약" }
+      - { label: "Summary (Paywall Preview)", name: "summary", widget: "text", hint: "메인 페이지에 보일 요약글" }
       - { label: "Body (Full Text)", name: "body", widget: "markdown", hint: "에세이 전체 내용" }
